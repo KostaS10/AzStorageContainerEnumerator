@@ -9,4 +9,4 @@ Requirements:
 
 Instructions:
 
-Once logged into your Azure environment, just ran the script provided and it will present a list of Storage Accounts with Containers that have public access configured on them.
+Once logged into your Azure environment, just ran the script provided and it will present a list of Storage Accounts and it's Containers that have public access configured on them, so you can double check if that is an intended configuration.
