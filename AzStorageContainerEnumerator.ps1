@@ -12,7 +12,7 @@ Scanning your Azure Storage Accounts, finding public exposed containers
 try {
     $account = Connect-AzAccount
 }catch{
-    "ERROR: Make sure you are connected to your Azure environment with Connect-AzAccount"
+    "ERROR: Make sure you have Azure PowerShell module installed before running this script"
 	break
 }
 try{    
