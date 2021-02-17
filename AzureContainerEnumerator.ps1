@@ -4,7 +4,7 @@ $containersarray = @()
 
 Write-Output @"
 ==============================================
-Azure Storage Accounts container scanner
+AzStorageContainerEnumerator
 	by Kosta S.
 ==============================================
 Scanning your Azure Storage Accounts, finding public exposed containers
