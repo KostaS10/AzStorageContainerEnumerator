@@ -10,7 +10,7 @@ https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-5.5.0
 
 Instructions:
 
-* Start Windows Terminal, Command Prompt or other application of your choice
+* Start Windows Terminal, Windows PowerShell or other application of your choice
 * Execute AzStorageContainerEnumerator.ps1 script
 * Login prompt will show up asking you to login with your Azure credentials to Azure tenant
 
