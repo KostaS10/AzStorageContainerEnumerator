@@ -1,4 +1,5 @@
 $ErrorActionPreference= 'silentlycontinue'
+$ProgressPreference = "SilentlyContinue"
 $containersarray = @()
 
 Write-Output @"
@@ -6,12 +7,16 @@ Write-Output @"
 Azure Storage Accounts container scanner
 	by Kosta S.
 ==============================================
-
 Scanning your Azure Storage Accounts, finding public exposed containers
-
 "@
-
+try {
+    $account = Connect-AzAccount
+}catch{
+    "ERROR: Make sure you are connected to your Azure environment with Connect-AzAccount"
+	break
+}
 try{    
+    
 	$subs = Get-AzSubscription
     $subsname = (Get-AzSubscription).Name
     $subscount = $subsname.count
@@ -55,7 +60,7 @@ foreach($sub in $subs){
 
 		$ctx = $storageacc.Context
 
-		$containersarray += (Get-AzStorageContainer -Context $ctx | where {$_.PublicAccess -eq "Container"})
+		$containersarray += (Get-AzStorageContainer -Context $ctx | where {$_.PublicAccess -eq "Container" -or $_.PublicAccess -eq "Blob"})
 
 		}
 	$publiccontainers = $containersarray | where {$_.Name}
@@ -65,14 +70,17 @@ foreach($sub in $subs){
 
 	Write-Output @"
 ==============================================
-
-Listing Azure Storage Accounts and Containers that have Public access configured on them
-
+INFO: Listing Azure Storage Accounts and Containers that have Public access configured on them
 "@
 
+
 	$containers = $containersarray | where {$_.Name}
-	$containersuri = $containers.CloudBlobContainer.Uri.AbsoluteURI
-	foreach($containeruri in $containersuri){
+	if($container.Count -eq 0){
+		Write-Output "INFO: No Azure Storage accounts and Containers found with Public access configured"
+	}else{
+	foreach($container in $containers){
+		$containeruri = $container.CloudBlobContainer.Uri.AbsoluteURI
+		$containeraccess = $container.PublicAccess
 		$split1 = $containeruri.Split("//")
 		$stghostname = $split1[2]
 		$containername = $split1[3]
@@ -82,12 +90,7 @@ Listing Azure Storage Accounts and Containers that have Public access configured
 		[pscustomobject]@{
 			StrorageName = $stgname
 			ContainerName = $containername
-			AccessLevel = "Public"
+			AccessLevel = $containeraccess
 		}
 	}
-
-
-	
-
-
-
+}
