@@ -2,13 +2,13 @@
 
 This PowerShell script is used for checking your Azure environment and finding Azure Storage accounts and Containers in them who have public access configured.
 
-Requirements:
+## Requirements:
 
 * Azure PowerShell module 
 https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-5.5.0
 * Azure account with sufficient permissions in your Azure environment
 
-Instructions:
+## Instructions:
 
 * Start Windows Terminal, Windows PowerShell or other application of your choice
 * Execute AzStorageContainerEnumerator.ps1 script
