@@ -5,6 +5,7 @@ This PowerShell script is used for checking your Azure environment and finding A
 Requirements:
 
 * Azure PowerShell module 
+https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-5.5.0
 * Azure account with sufficient permissions in your Azure environment
 
 Instructions:
