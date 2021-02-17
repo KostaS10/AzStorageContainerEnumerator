@@ -19,4 +19,4 @@ Script will search through Azure subscriptions, find all Storage accounts and ch
 ## Possible problems:
 
 * If you cannot execute the script on the machine, make sure that Set-ExecutionPolicy is configured as -RemoteSigned
-* If you don't see a list of storage accounts or containers, make sure that the account that you are using has sufficient priviledges noted in the Requirements section
+* If you don't see a list of storage accounts or containers, make sure that the account that you are using has sufficient privileges noted in the Requirements section
