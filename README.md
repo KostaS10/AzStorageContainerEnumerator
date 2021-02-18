@@ -1,4 +1,4 @@
-# AzureContainerEnumerator
+# AzContainerEnumerator
 
 This PowerShell script is used for checking your Azure environment and finding Azure Storage accounts and Containers in them who have public access configured.
 
